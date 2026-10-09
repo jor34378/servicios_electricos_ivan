@@ -1,0 +1,539 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    /* Paleta de colores */
+    --color-primario: #0B2545;    /* Azul marino profundo (confianza) */
+    --color-secundario: #134074;  /* Azul intermedio */
+    --color-acento: #EE9B00;      /* Amarillo/Naranja industrial (energía) */
+    --color-whatsapp: #25D366;    /* Verde oficial de WhatsApp */
+    --color-fondo: #F4F7F6;       /* Gris claro neutro para el cuerpo */
+    --color-blanco: #FFFFFF;
+    --color-texto: #1D2A44;
+    --color-texto-suave: #555555;
+  
+    /* Tipografía */
+    --fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  html {
+    font-size: 62.5%;             /* 1rem = 10px */
+    scroll-behavior: smooth;     /* Desplazamiento fluido entre secciones */
+  }
+  
+  body {
+    font-family: var(--fuente-principal);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+  }
+  
+  /* Contenedor o límite general */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Estilos globales de encabezados */
+  h2 {
+    font-size: 2.8rem;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitulo {
+    text-align: center;
+    color: var(--color-texto-suave);
+    margin-bottom: 3rem;
+  }
+  
+  /* ==========================================================================
+     2. HEADER Y NAVEGACIÓN (Sticky/Fijo arriba)
+     ========================================================================== */
+  header {
+    background-color: var(--color-primario);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  header .logo h1 {
+    color: var(--color-blanco);
+    font-size: 2.2rem;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  
+  nav a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+  }
+  
+  /* ==========================================================================
+     3. SECCIÓN HERO (BANNER PRINCIPAL)
+     ========================================================================== */
+  .hero {
+    /* Imagen de fondo con overlay oscuro para legibilidad */
+    background: linear-gradient(rgba(11, 37, 69, 0.75), rgba(11, 37, 69, 0.75)), 
+                url("../img/banner.jpg") center/cover no-repeat;
+    height: 400px;
+    border-radius: 12px;
+    margin-bottom: 4rem;
+  
+    /* Centrado total con Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+    color: var(--color-blanco);
+  }
+  
+  .hero-content h2 {
+    color: var(--color-blanco);
+    font-size: 3.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    color: #E0E0E0;
+  }
+  
+  /* Botón Call To Action */
+  .btn-cta {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1.2rem 2.8rem;
+    border-radius: 6px;
+    font-size: 1.8rem;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .btn-cta:hover {
+    background-color: #D48800;
+    transform: translateY(-2px);
+  }
+  
+  /* ==========================================================================
+     4. SECCIÓN SERVICIOS (Flexbox con Tarjetas)
+     ========================================================================== */
+  .servicios-section {
+    margin-bottom: 5rem;
+  }
+  
+  .contenedor-tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+  }
+  
+  .tarjeta {
+    background-color: var(--color-blanco);
+    border-top: 5px solid var(--color-acento);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+    /* Flex individual para ajustar dimensiones */
+    flex: 1 1 280px;
+    max-width: 340px;
+  
+    /* Layout interno vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .tarjeta h3 {
+    color: var(--color-primario);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tarjeta p {
+    color: var(--color-texto-suave);
+    margin-bottom: 2rem;
+  }
+  
+  .tarjeta .etiqueta {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #EBF3FA;
+    color: var(--color-secundario);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+  }
+  
+  /* ==========================================================================
+     5. SECCIÓN SOBRE MÍ / CONFIANZA
+     ========================================================================== */
+  .sobre-mi-section {
+    background-color: var(--color-blanco);
+    padding: 3.5rem;
+    border-radius: 10px;
+    margin-bottom: 5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .lista-beneficios {
+    list-style: none;
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .lista-beneficios li {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #EAEAEA;
+  }
+  
+  .lista-beneficios li:last-child {
+    border-bottom: none;
+  }
+  
+  .lista-beneficios strong {
+    color: var(--color-secundario);
+  }
+
+  /* --- GALERÍA DE TRABAJOS --- */
+.trabajos-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.subtitulo-seccion {
+  font-size: 1.6rem;
+  color: #666;
+  margin-bottom: 3rem;
+}
+
+.galeria-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tarjeta-trabajo {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  flex: 1 1 320px;
+  max-width: 360px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-trabajo:hover {
+  transform: translateY(-5px);
+}
+
+.contenedor-img {
+  width: 100%;
+  height: 260px;
+  background-color: #e9ecef;
+  overflow: hidden;
+}
+
+.contenedor-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la foto sin deformarla */
+  display: block;
+}
+
+.info-trabajo {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.info-trabajo h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.8rem;
+  color: #1a1a1a;
+}
+
+.info-trabajo p {
+  color: #555;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0;
+}
+  
+  /* ==========================================================================
+     6. SECCIÓN CONTACTO Y FORMULARIO
+     ========================================================================== */
+  .contacto-section {
+    background-color: var(--color-blanco);
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-contacto {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+  }
+  
+  .form-contacto label {
+    display: block;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario);
+  }
+  
+  .form-contacto input,
+  .form-contacto textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    background-color: #FAFAFA;
+  }
+  
+  .form-contacto input:focus,
+  .form-contacto textarea:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    background-color: var(--color-blanco);
+  }
+  
+  #boton {
+    width: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #boton:hover {
+    background-color: var(--color-secundario);
+  }
+  
+  /* Bloque destacado de WhatsApp */
+  .whatsapp-block {
+    text-align: center;
+    border-top: 2px dashed #EAEAEA;
+    padding-top: 2.5rem;
+  }
+  
+  .whatsapp-block p {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-whatsapp {
+    display: inline-block;
+    background-color: var(--color-whatsapp);
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1.2rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .btn-whatsapp:hover {
+    background-color: #20BA5A;
+    transform: scale(1.03);
+  }
+  
+  /* ==========================================================================
+   7. FOOTER 
+   ========================================================================== */
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 4rem 2rem 2rem 2rem;
+}
+
+.footer-contenido {
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* La etiqueta <address> por defecto viene en cursiva, la normalizamos */
+footer address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+footer address a {
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+
+.footer-redes p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.link-instagram {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.7rem;
+  transition: color 0.3s;
+}
+
+.link-instagram:hover {
+  color: var(--color-blanco);
+  text-decoration: underline;
+}
+
+/* Línea divisoria de créditos */
+.footer-creditos {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.footer-creditos .volver-arriba {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-creditos .volver-arriba:hover {
+  text-decoration: underline;
+}
+/* Le dice al navegador que deje un margen arriba únicamente al hacer scroll por ancla (#) */
+section {
+  scroll-margin-top: 80px; /* Ajustá los 80px según la altura de tu header */
+}
+  /* --- ESTILOS PÁGINA DE AGRADECIMIENTO --- */
+
+/* Centra todo el contenido vertical y horizontalmente en pantalla completa */
+.body-gracias {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f9; /* Cambiá por el color de fondo de tu web */
+    font-family: sans-serif;
+  }
+  
+  /* Tarjeta contenedora del mensaje */
+  .tarjeta-gracias {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+  }
+  
+  /* Círculo con el tilde de confirmación */
+  .icono-exito {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #28a745; /* Verde de éxito */
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .tarjeta-gracias h1 {
+    margin-top: 0;
+    color: #333333;
+    font-size: 26px;
+  }
+  
+  .tarjeta-gracias p {
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  
+  /* Botón para regresar al inicio */
+  .btn-volver {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #007bff; /* Cambiá por el color primario de tu marca */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-volver:hover {
+    background-color: #0056b3; /* Color levemente más oscuro al pasar el mouse */
+  }
