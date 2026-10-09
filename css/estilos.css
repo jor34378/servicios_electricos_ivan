@@ -96,6 +96,27 @@
     background-color: var(--color-acento);
     color: var(--color-primario);
   }
+
+/* Ajuste para pantallas móviles */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Alinea el título y los enlaces uno debajo del otro */
+    padding: 10px;
+    width: 100%;
+  }
+
+  nav ul {
+    flex-wrap: wrap;       /* Permite que los links bajen si no entran en una fila */
+    justify-content: center;
+    gap: 10px;             /* Espaciado parejo entre enlaces */
+    padding: 0;
+  }
+
+  nav ul li a {
+    font-size: 14px;       /* Achica ligeramente el texto en pantallas chicas */
+  }
+}
   
   /* ==========================================================================
      3. SECCIÓN HERO (BANNER PRINCIPAL)
